@@ -4,7 +4,8 @@ function getComputerChoice() {
   return array[~~(Math.random()*array.length)];
 }
 
-function playRound(playerSelection, computerSelection){
+function playRound(playerSelection, computerSelection){ 
+  // Function that plays one round and returns the result
   playerSelection = playerSelection.toLowerCase();
   computerSelection = computerSelection.toLowerCase();
 
@@ -36,6 +37,7 @@ function playRound(playerSelection, computerSelection){
 }
 
 function game(){
+  // Function that plays 5 rounds and shows the result of each round and the result overall
   player = 0;
   cpu = 0;
   for (let i=0; i <= 5; i++){
@@ -53,7 +55,7 @@ function game(){
     }
     console.log ("Result | Player " + player + "-" + cpu + " CPU" )
   }
-
+  // Final message with the final result of the 5 games
   if(player<cpu){
     return "You are a disgrace for you kind, the world just fell into the hands of the machines!"
   }else if(player>cpu){
