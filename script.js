@@ -1,7 +1,7 @@
 const array = ["Rock", "Paper", "Scissors"];
 
 function getComputerChoice() {
-  return array[~~(Math.random()*array.length)];
+  return array[~~(Math.random()*array.length)].toLowerCase();
 }
 
 function playRound(playerSelection, computerSelection){ 
@@ -36,6 +36,16 @@ function playRound(playerSelection, computerSelection){
   }
 }
 
+const buttons = document.querySelectorAll('.btn')
+
+buttons.forEach( button => button.addEventListener('click', ()=>{
+  playerSelection = button.id;
+  computerSelection = getComputerChoice();
+
+  console.log ("Result | Player " + playerSelection + "-" + computerSelection + " CPU" )
+}))
+
+/*
 function game(){
   // Function that plays 5 rounds and shows the result of each round and the result overall
   player = 0;
@@ -67,3 +77,4 @@ function game(){
 }
 
 console.log(game())
+*/
