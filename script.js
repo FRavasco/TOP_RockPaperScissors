@@ -37,44 +37,44 @@ function playRound(playerSelection, computerSelection){
 }
 
 const buttons = document.querySelectorAll('.btn')
+const div = document.querySelector('div')
+
+player = 0;
+cpu = 0;
 
 buttons.forEach( button => button.addEventListener('click', ()=>{
   playerSelection = button.id;
-  computerSelection = getComputerChoice();
+  computerSelection = getComputerChoice()
+  message = ""
 
-  console.log ("Result | Player " + playerSelection + "-" + computerSelection + " CPU" )
+  round = playRound(playerSelection,computerSelection)
+
+  if(round == "You win! You get to live another day!"){
+    ++player
+  }else if (round == "You lose! One step closer to conquering the world!!!"){
+    ++cpu
+  }else if (round = "Match Tied!!"){
+
+  }
+  console.log ("Result | Player " + player + "-" + cpu + " CPU" )
+  
+  // Final message with the final result of the 5 games
+  if (player+cpu == 5){
+    player = 0;
+    cpu = 0;
+
+    if(player<cpu){
+      message =  "/n You are a disgrace for you kind, the world just fell into the hands of the machines!"
+    }else if(player>cpu){
+      message = "/n Yeayyy you've saved us!!!"
+    }else if(player == cpu){
+      message = "/n They managed to escape this time, get ready for the next wave!"
+    }
+  }
+  
+  div.textContent = "Result | Player   " + player + " - " + cpu + "   CPU" + message
 }))
 
-/*
-function game(){
-  // Function that plays 5 rounds and shows the result of each round and the result overall
-  player = 0;
-  cpu = 0;
-  for (let i=0; i <= 5; i++){
-    playerSelection = prompt("Chose your weapon!")
-    computerSelection = getComputerChoice()
-    round = playRound(playerSelection,computerSelection)
-    console.log(round)
 
-    if(round == "You win! You get to live another day!"){
-      ++player
-    }else if (round == "You lose! One step closer to conquering the world!!!"){
-      ++cpu
-    }else if (round = "Match Tied!!"){
 
-    }
-    console.log ("Result | Player " + player + "-" + cpu + " CPU" )
-  }
-  // Final message with the final result of the 5 games
-  if(player<cpu){
-    return "You are a disgrace for you kind, the world just fell into the hands of the machines!"
-  }else if(player>cpu){
-    return "Yeayyy you've saved us!!!"
-  }else if(player == cpu){
-    return "They managed to escape this time, get ready for the next wave!"
-  }
 
-}
-
-console.log(game())
-*/
